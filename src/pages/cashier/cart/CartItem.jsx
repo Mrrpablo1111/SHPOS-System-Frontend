@@ -13,60 +13,63 @@ const CartItem = ({ item }) => {
       transition={{ duration: 0.2 }}
     >
       <Card className="shadow-sm hover:shadow-md transition-all">
-        <CardContent className="p-3">
-          
-          <div className='flex items-center justify-between'>
-            
+        <CardContent className="p-2 sm:p-3">
+
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+
             {/* Product Info */}
-            <div className='flex-1'>
-              <h3 className='font-medium'>{item.name}</h3>
-              <p className='text-sm text-muted-foreground'>{item.sku}</p>
+            <div className="flex-1">
+              <h3 className="font-medium text-sm sm:text-base truncate">
+                {item.name}
+              </h3>
+              <p className="text-xs sm:text-sm text-muted-foreground truncate">
+                {item.sku}
+              </p>
             </div>
 
-            {/* Controls */}
-            <div className='flex items-center space-x-3'>
-              
-              {/* Quantity */}
-              <div className='flex items-center border rounded-lg overflow-hidden'>
+            {/* Bottom Section (Mobile) / Right Section (Desktop) */}
+            <div className="flex flex-wrap items-center justify-between sm:justify-end gap-2 sm:gap-3">
 
+              {/* Quantity */}
+              <div className="flex items-center border rounded-lg overflow-hidden">
                 <motion.div whileTap={{ scale: 0.8 }}>
-                  <Button variant="ghost" size='sm' className="h-8 w-8 p-0">
-                    <Minus className='w-4 h-4'/>
+                  <Button variant="ghost" size="sm" className="h-7 w-7 sm:h-8 sm:w-8 p-0">
+                    <Minus className="w-3 h-3 sm:w-4 sm:h-4" />
                   </Button>
                 </motion.div>
 
-                <span className='px-3 py-1 text-sm font-medium min-w-[3rem] text-center'>
+                <span className="px-2 sm:px-3 text-xs sm:text-sm font-medium min-w-[2.5rem] text-center">
                   {item.quantity}
                 </span>
 
                 <motion.div whileTap={{ scale: 0.8 }}>
-                  <Button variant='ghost' size='sm' className="h-8 w-8 p-0">
-                    <Plus className='w-4 h-4'/>
+                  <Button variant="ghost" size="sm" className="h-7 w-7 sm:h-8 sm:w-8 p-0">
+                    <Plus className="w-3 h-3 sm:w-4 sm:h-4" />
                   </Button>
                 </motion.div>
-
               </div>
 
               {/* Price */}
-              <div className='text-right'>
-                <p className='font-medium text-sm'>${item.sellingPrice}</p>
-                <p className='text-sm font-bold text-green-600'>
+              <div className="text-right min-w-[70px]">
+                <p className="text-xs sm:text-sm text-muted-foreground">
+                  ${item.sellingPrice}
+                </p>
+                <p className="text-sm sm:text-base font-bold text-green-600">
                   ${(item.sellingPrice * item.quantity).toFixed(2)}
                 </p>
               </div>
 
               {/* Delete */}
-              <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
+              <motion.div whileTap={{ scale: 0.8 }}>
                 <Button
-                  variant='ghost'
-                  className="h-8 w-8 p-0 text-red-500 hover:text-red-700"
+                  variant="ghost"
+                  className="h-7 w-7 sm:h-8 sm:w-8 p-0 text-red-500 hover:text-red-700"
                 >
-                  <Trash2 className='w-4 h-4'/>
+                  <Trash2 className="w-3 h-3 sm:w-4 sm:h-4" />
                 </Button>
               </motion.div>
 
             </div>
-
           </div>
 
         </CardContent>

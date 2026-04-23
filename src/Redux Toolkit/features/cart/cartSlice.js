@@ -120,11 +120,12 @@ const cartSlice = createSlice({
 });
 
 // Selector
-export const selectedCartItems = (state) => state.cart.cartItems;
+export const selectCartItems = (state) => state.cart.cartItems;
 export const selectedCartItemCount  = (state) => state.cart.cartItems.length;
-export const selectedSelectedCustomer = (state) => state.cart.selectedCustomer;
+export const selectedCustomer = (state) => state.cart.selectedCustomer;
 export const selectNote = (state) => state.cart.note;
 export const selectDiscount = (state) => state.cart.discount;
+export const selectPaymentMethod = (state) => state.cart.paymentMethod;
 export const selectHeldOrder = (state) => state.cart.heldOrder;
 export const selectCurrentOrder = (state) => state.cart.currentOrder;
 
