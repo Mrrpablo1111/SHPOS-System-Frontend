@@ -26,9 +26,6 @@ const RecentSales = () => {
                             <p className='font-semibold'>{item.amount}</p>
                         </div>
                     )}
-
-
-
                 </div>
             </CardContent>
         </Card>
