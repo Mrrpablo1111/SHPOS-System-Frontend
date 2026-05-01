@@ -61,7 +61,7 @@ const navLinks = [
   },
   {
     name: "Settings",
-    path: "/store/settings",
+    path: "/store/setting",
     icon: <Settings className="w-5 h-5" />,
   },
 ];

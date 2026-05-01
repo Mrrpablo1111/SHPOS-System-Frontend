@@ -8,8 +8,8 @@ import StoreEmployee from '@/pages/store/Employee/StoreEmployee'
 import Products from '@/pages/store/Product/Products'
 import Reports from '@/pages/store/Report/Reports'
 import Sales from '@/pages/store/Sale/Sales'
-import Setting from '@/pages/store/Setting/Setting'
 import Stores from '@/pages/store/Store/Stores'
+import StoreInfo from '@/pages/store/StoreInfo/StoreInfo'
 import Upgradeplan from '@/pages/store/UpgradePlan/Upgradeplan'
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
@@ -29,7 +29,7 @@ const StoreRoutes = () => {
             <Route path='sales' element={<Sales/>}/>
             <Route path='reports' element={<Reports/>}/>
             <Route path='upgrade' element={<Upgradeplan/>}/>
-            <Route path='setting' element={<Setting/>}/>            
+            <Route path='setting' element={<StoreInfo/>}/>            
             
         </Route>
     </Routes>
