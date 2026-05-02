@@ -13,11 +13,11 @@ import {
 } from '@/lib/sidebarVariantsMotion';
 
 const navLinks = [
-  { name: "Dashboard", path: "/super-admin/dashboard", icon: LayoutDashboard },
-  { name: "Stores", path: "/super-admin/stores", icon: Store },
-  { name: "Subscription Plans", path: "/super-admin/subscriptions", icon: FileText },
-  { name: "Pending Requests", path: "/super-admin/requests", icon: Clock },
-  { name: "Settings", path: "/super-admin/settings", icon: Settings },
+  { name: "Dashboard", path: "/admin/dashboard", icon: LayoutDashboard },
+  { name: "Stores", path: "/admin/stores", icon: Store },
+  { name: "Subscription Plans", path: "/admin/subscriptions", icon: FileText },
+  { name: "Pending Requests", path: "/admin/requests", icon: Clock },
+  { name: "Settings", path: "/admin/settings", icon: Settings },
 ];
 
 const AdminSidebar = () => {

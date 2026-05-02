@@ -8,6 +8,7 @@ import BranchRoutes from './routes/BranchRoutes'
 import StoreDashboardLayout from './pages/store/Dashboard/StoreDashboardLayout'
 import StoreRoutes from './routes/StoreRoutes'
 import AdminLayout from './pages/superAdmin/AdminLayout'
+import AdminRoutes from './routes/AdminRoutes'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,7 +24,8 @@ function App() {
         {/* <Route path='/branch/*' element={<BranchRoutes/>}/> */}
         <Route path='/' element={<Navigate to="/store"/>}/>
         <Route path='/store/*' element={<StoreRoutes/>}/>
-        <Route path='/admin/*' element={<AdminLayout/>}/>
+        
+        <Route path='/admin/*' element={<AdminRoutes/>}/>
       </Routes>
       
     </>
