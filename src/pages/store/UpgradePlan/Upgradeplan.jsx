@@ -1,8 +1,36 @@
-import { CheckCircle } from 'lucide-react'
+import { CheckCircle, Info, LucideCircleStar, Store } from 'lucide-react'
 import React from 'react'
-const plans = [{ id: 1, name:"Basic", price:4.99, billingCycle: "monthly" },
-   { id: 2, name:"Pro", price:7.99, billingCycle:"monthly" }, 
-   { id: 3, name:"Advance", price: 10.99, billingCycle:"monthly"}];
+const plans = [
+  {
+    id: 1,
+    description: "Basic plan for small store",
+    name: "Basic", price: 4.99,
+    billingCycle: "monthly",
+    extraFeatures: [
+      "Api Integration",
+      "Advance Reporting"
+    ]
+  },
+  {
+    id: 2,
+    name: "Pro",
+    price: 7.99,
+    billingCycle: "monthly",
+    extraFeatures: [
+      "Api Integration",
+      "Advance Reporting"
+    ]
+  },
+  {
+    id: 3,
+    name: "Advance",
+    price: 10.99,
+    billingCycle: "monthly",
+    extraFeatures: [
+      "Api Integration",
+      "Advance Reporting"
+    ]
+  }];
 const currentSubscription = {
   plan: {
     id: 1
@@ -32,10 +60,22 @@ const Upgradeplan = () => {
             <div>
               <h3 className='font-bold text-2xl text-foreground mb-2'>{p.name}</h3>
               <div className='flex items-baseline justrify-center'>
-                <span className='text-4xl font-bold text-foreground'>${p.price}</span>
+                <span className='text-4xl font-bold text-foreground mb-4'>${p.price}</span>
                 <span className='text-muted-foreground ml-1'>/{p.billingCycle?.toLowerCase()}</span>
 
               </div>
+              <ul>
+                <li className='text-muted-foreground mb-2 flex items-center gap-2'><Info /> {p.description}</li>
+                <li className='text-muted-foreground mb-2 flex items-center gap-2'><Store />Max Branches: {p.maxBranches}</li>
+                <li className='text-muted-foreground mb-2 flex items-center gap-2'><Store />Max Users: {p.maxBranches}</li>
+                <li className='text-muted-foreground mb-2 items-center gap-2'>
+                  <span className='font-medium flex items-center gap-2'><LucideCircleStar />Key-Feature</span>
+                  <ul className='ml-7 list-disc space-y-1'>{p.extraFeatures.map((feature, idx) => (
+                    <li><span>{feature}</span></li>
+
+                  ))}</ul>
+                </li>
+              </ul>
             </div>
           </div>
         ))}
