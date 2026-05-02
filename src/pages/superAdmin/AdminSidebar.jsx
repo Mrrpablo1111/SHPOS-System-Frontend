@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { LogOut } from 'lucide-react';
-import { Store } from 'lucide-react';
+import { Clock, FileText, LayoutDashboard, LogOut, Settings, Store } from 'lucide-react';
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -13,7 +12,15 @@ import {
   iconTapVariants,
 } from '@/lib/sidebarVariantsMotion';
 
-const StoreSidebar = ({ navLinks }) => {
+const navLinks = [
+  { name: "Dashboard", path: "/super-admin/dashboard", icon: LayoutDashboard },
+  { name: "Stores", path: "/super-admin/stores", icon: Store },
+  { name: "Subscription Plans", path: "/super-admin/subscriptions", icon: FileText },
+  { name: "Pending Requests", path: "/super-admin/requests", icon: Clock },
+  { name: "Settings", path: "/super-admin/settings", icon: Settings },
+];
+
+const AdminSidebar = () => {
   const location = useLocation();
   const [hoveredPath, setHoveredPath] = useState(null);
 
@@ -24,9 +31,8 @@ const StoreSidebar = ({ navLinks }) => {
       initial="hidden"
       animate="visible"
     >
-      {/* Logo */}
       <motion.div
-        className="flex items-center mb-4 gap-3"
+        className="flex items-center mb-8 gap-3 "
         variants={logoVariants}
       >
         <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
@@ -34,7 +40,7 @@ const StoreSidebar = ({ navLinks }) => {
         </div>
         <div>
           <span className="font-extrabold text-xl tracking-tight text-sidebar-foreground leading-none">
-            SH-POS Store
+            SH-POS Admin
           </span>
         </div>
       </motion.div>
@@ -45,6 +51,7 @@ const StoreSidebar = ({ navLinks }) => {
         </p>
         <ul className="space-y-1">
           {navLinks.map((link) => {
+            const Icon = link.icon;
             const isActive = location.pathname.startsWith(link.path);
             const isHovered = hoveredPath === link.path;
 
@@ -60,7 +67,7 @@ const StoreSidebar = ({ navLinks }) => {
                   <AnimatePresence>
                     {(isActive || isHovered) && (
                       <motion.span
-                        layoutId={isActive ? "store-active-pill" : undefined}
+                        layoutId={isActive ? "active-pill" : undefined}
                         className={`absolute inset-0 rounded-xl ${
                           isActive ? "bg-sidebar-accent" : "bg-sidebar-accent/50"
                         }`}
@@ -69,7 +76,7 @@ const StoreSidebar = ({ navLinks }) => {
                     )}
                   </AnimatePresence>
 
-           
+    
                   <motion.span
                     className={`relative z-10 flex items-center justify-center w-10 h-10 rounded-lg transition-colors ${
                       isActive
@@ -78,9 +85,10 @@ const StoreSidebar = ({ navLinks }) => {
                     }`}
                     {...iconTapVariants}
                   >
-                    {link.icon}
+                    <Icon className="w-5 h-5" />
                   </motion.span>
 
+             
                   <span
                     className={`relative z-10 transition-colors ${
                       isActive
@@ -94,7 +102,7 @@ const StoreSidebar = ({ navLinks }) => {
                   {/* Active dot */}
                   {isActive && (
                     <motion.span
-                      layoutId="store-active-dot"
+                      layoutId="active-dot"
                       className="relative z-10 ml-auto w-1.5 h-1.5 rounded-full bg-primary"
                       {...activeDotVariants}
                     />
@@ -112,6 +120,7 @@ const StoreSidebar = ({ navLinks }) => {
         variants={itemVariants}
       />
 
+    
       <motion.div variants={itemVariants}>
         <Button
           variant="ghost"
@@ -128,4 +137,4 @@ const StoreSidebar = ({ navLinks }) => {
   );
 };
 
-export default StoreSidebar;
+export default AdminSidebar;

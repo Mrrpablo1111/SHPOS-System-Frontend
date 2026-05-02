@@ -32,3 +32,4 @@ export const fadeSlide = {
 export const hoverInput = {
     whileFocus: {scale: 1.01}
 }
+

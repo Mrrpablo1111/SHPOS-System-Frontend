@@ -67,7 +67,7 @@ const navLinks = [
 ];
 const StoreDashboardLayout = ({children}) => {
   return (
-    <div className='flex h-screen bg-gradient-to-br from-primary/5 var-background to-primary/10'>
+    <div className='flex h-screen bg-linear-to-br from-primary/5 via-background to-primary/10'>
         <StoreSidebar navLinks={navLinks}/>
 
         <div className='flex-1 flex flex-col'>
