@@ -30,7 +30,6 @@ const StoreRegistrationChart = () => {
 
     return () => clearTimeout(timer);
   }, []);
-
   const config = {
     sales: {
       label: "Sales",
@@ -42,7 +41,7 @@ const StoreRegistrationChart = () => {
     <Card>
       <CardHeader>
         <CardTitle className="text-xl font-semibold">
-          Daily Sales
+          Store Registration (last 7 days)
         </CardTitle>
       </CardHeader>
 
